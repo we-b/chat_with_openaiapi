@@ -160,12 +160,13 @@ window.addEventListener("turbo:load", () => {
       <div id="chat-container">
         <div id="messages-list"></div>
       </div>
-      <form id="generation-form" action="/chat_threads/${chatThread.id}/prompts" data-remote="true">
-        <div class="textarea-with-submit-inside">
-          <textarea name="prompt[content]" class="rounded-corners"></textarea>
-          <input type="submit" value="↑" class="submit-within-textarea rounded-corners">
-        </div>
-      </form>
+     <form id="generation-form" action="/chat_threads/${chatThread.id}/messages" method="post" accept-charset="UTF-8">
+      <div class="textarea-with-submit-inside">
+    　　　<textarea name="message[prompt]" class="rounded-corners" id="message_prompt"></textarea>
+    　　　<input type="submit" value="↑" class="submit-within-textarea rounded-corners" data-disable-with="↑">
+  　　　</div>
+　　　</form>
+
       <div id="threads-modal">
       <div id="threads-modal-content">
         <button id="close-threads-btn">&times;</button>
@@ -176,6 +177,10 @@ window.addEventListener("turbo:load", () => {
     `;
     
     document.body.insertAdjacentHTML('afterbegin', newHtml);
+    form = document.getElementById('generation-form');
+　　 messagesList = document.getElementById('messages-list');
+    threadsList = document.getElementById('threads-list');
+
     
     InitializeInterface();
     
