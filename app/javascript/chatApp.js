@@ -182,15 +182,14 @@ window.addEventListener("turbo:load", () => {
     threadsList = document.getElementById('threads-list');
 
     
-    InitializeInterface();
-    
     if (prompts && Array.isArray(prompts)) {
-      prompts.forEach(prompt => {
-        if (prompt.content) {
-          appendPrompt(prompt.content, prompt.response);
-        }
-      });
+     prompts.forEach(prompt => {
+    if (prompt.prompt) {
+      appendPrompt(prompt.prompt, prompt.response);
+      }
+     });
     }
+     InitializeInterface();
   }
 
   // プロンプトと返答を画面に追加する関数。
