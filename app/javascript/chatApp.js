@@ -1,4 +1,4 @@
-window.addEventListener("turbo:load", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // 各要素を取得
   let threadTitle = document.getElementById('thread-title');
   let chatContainer = document.getElementById('chat-container');
